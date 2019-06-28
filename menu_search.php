@@ -34,6 +34,7 @@
 					<button class="btn btnMenu BLK" type="button" onclick="location.href='cad_ped.php'">Cadastrar pedidos</button>
 					<button class="btn btnMenu BLK" type="button" onclick="location.href='menu_search.php'">Lista de pedidos</button>
 					<button class="btn btnMenu BLK" type="button" onclick="location.href='menu_inativo.php'">Lista de pedidos inativos</button>
+					<button class="btn btnMenu BLK" type="button" onclick="location.href='menu_concluido.php'">Lista de pedidos concluídos</button>
 					</div>
 				</div>
 				<div class="content">
