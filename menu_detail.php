@@ -63,8 +63,15 @@
 							<div class="lbTx inTx">
 								<label>Status: </label>
 								<select class='input_borderless' name="dd_txt" class="lbTx lbTxCad" type="text" required="required">
-								<option value="Aberto">Aberto</option>
-								<option value="Fechado">Fechado</option>
+								<?php
+									if ($dados->status == "Aberto") {
+										echo "<option value='Aberto' selected='selected'>Aberto</option>
+												<option value='Fechado'>Fechado</option>";
+									}else{
+										echo "<option value='Fechado' selected='selected'>Fechado</option>
+										<option value='Aberto'>Aberto</option>";
+									}
+								?>
 								</select>
 							</div>
 							<div class="lbTx inTx">
