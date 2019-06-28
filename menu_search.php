@@ -38,7 +38,13 @@
 				</div>
 				<div class="content">
 					<input class='inStd inSrc' type='text' id='camp_busca' placeholder="Pesquisar...">
-					<?php 
+					<?php
+					if(isset($_SESSION['pedidocriado'])) {
+							echo "<div class='container aceitobox'>
+							<h1 class='logerror'> Pedido criado! </h1>
+							</div>";
+							unset($_SESSION['pedidocriado']);
+					} 
 					if(isset($_SESSION['pedidoatualizado'])) {
 							echo "<div class='container aceitobox'>
 							<h1 class='logerror'> Pedido atualizado! </h1>
@@ -49,8 +55,8 @@
 							echo "<div class='container errorbox'>
 							<h1 class='logerror'> Pedido deletado! </h1>
 							</div>";
-							unset($_SESSION['pedidoatualizado']);
-						}
+							unset($_SESSION['pedidodeletado']);
+					}
 					?>
 				<div class='tab_scrl'>
 					<table id="tabelaResultado" class="tabRes">

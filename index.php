@@ -18,8 +18,6 @@
    </head>
   
 	<body>
-
-	
 		<div class='container martop'>
 		<div class='lgbox'>
 			<h1 class='t1'> Pontocom Informática </h1>
@@ -34,8 +32,6 @@
 					echo "<div class='container errorbox'>
 							<h1 class='logerror'> Usuário ou senha não encontrado! </h1>
 					</div>";
-				}else{
-				
 				}
 			?>
 			<button class='btn btnl' type='submit'>Entrar</button> 

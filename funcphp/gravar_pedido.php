@@ -16,6 +16,7 @@ $usuarioId = $_SESSION['usuarioId'];
 $sql="INSERT INTO pedidos (fk_id_usuario, nm_cliente, nm_maq, dt_ent, dt_sai, vl_serv, status, situacao) VALUES ('$usuarioId' , '$cliente' , '$maquina' , '$data_ent' , '$data_sai' , '$valor' , '$status' , '$situacao')";
 
 if ($con->query($sql) === TRUE) {
+	$_SESSION['pedidocriado'] = "true";
     header("Location: ../menu_search.php");
 } else {
     echo "Error: " . $sql . "<br>" . $con->error;
