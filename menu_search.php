@@ -38,11 +38,11 @@
 							</div>";
 							unset($_SESSION['pedidoatualizado']);
 					}
-					if(isset($_SESSION['pedidodeletado'])) {
+					if(isset($_SESSION['pedidodesativado'])) {
 							echo "<div class='container errorbox'>
-							<h1 class='logerror'> Pedido deletado! </h1>
+							<h1 class='logerror'> Pedido desativado! </h1>
 							</div>";
-							unset($_SESSION['pedidodeletado']);
+							unset($_SESSION['pedidodesativado']);
 					}
 					?>
 				<div class='tab_scrl'>
