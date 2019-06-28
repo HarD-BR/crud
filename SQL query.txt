@@ -1,0 +1,26 @@
+use bdpontocom;
+
+CREATE TABLE usuario(
+	id_usuario int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	usuario varchar(30) NOT NULL,
+	senha varchar(60) NOT NULL,
+	email varchar(60) NOT NULL
+	);
+
+CREATE TABLE pedidos(
+	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	fk_id_usuario int NOT NULL,
+	foreign key(fk_id_usuario) REFERENCES usuario(id_usuario),
+	nm_cliente varchar(50) NOT NULL,
+	nm_maq varchar(30) NOT NULL,
+	dt_ent date NOT NULL,
+	dt_sai date NOT NULL,
+	vl_serv varchar(10) NOT NULL,
+	status varchar(20) NOT NULL,
+	situacao varchar(50) NOT NULL,
+	problemas varchar(2000) NOT NULL,
+	solucoes varchar(2000) NOT NULL,
+	pecas varchar(2000) NOT NULL
+);
+
+INSERT INTO usuario (usuario, senha, email) VALUES ("admin", "admin", "adm@adm.com");

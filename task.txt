@@ -1,0 +1,17 @@
+Geral
+ Menu lateral esquerdo
+
+Tela login
+ Avisar erro 
+
+Tela cadastro
+ Verificacao
+
+Tela detalhes
+ *Caixa de log
+ Salvar alterações
+ Botao excluir(Desativar)
+
+ Tela perfil
+  Verificacao
+  Salvar mudancas
