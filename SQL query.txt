@@ -23,4 +23,5 @@ CREATE TABLE pedidos(
 	pecas varchar(2000) NOT NULL
 );
 
+
 INSERT INTO usuario (usuario, senha, email) VALUES ("admin", "admin", "adm@adm.com");
