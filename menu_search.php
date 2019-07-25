@@ -18,7 +18,7 @@
 	<body>
 		<div class='container'>
 			<div class='box tbbox tbbox2'>
-				<h1 class='t1'> Painel de administração</h1>
+				<h1 class='t1'>Painel de administração</h1>
 				<div>
 					<h1 class="t1 tTitulo">Lista de pedidos</h1>
 				</div>
@@ -28,19 +28,19 @@
 					<?php
 					if(isset($_SESSION['pedidocriado'])) {
 							echo "<div class='container aceitobox'>
-							<h1 class='logerror'> Pedido criado! </h1>
+							<h1 id='logevento' class='logerror'> Pedido criado! </h1>
 							</div>";
 							unset($_SESSION['pedidocriado']);
 					} 
 					if(isset($_SESSION['pedidoatualizado'])) {
 							echo "<div class='container aceitobox'>
-							<h1 class='logerror'> Pedido atualizado! </h1>
+							<h1 id='logevento' class='logerror'> Pedido atualizado! </h1>
 							</div>";
 							unset($_SESSION['pedidoatualizado']);
 					}
 					if(isset($_SESSION['pedidodesativado'])) {
 							echo "<div class='container errorbox'>
-							<h1 class='logerror'> Pedido desativado! </h1>
+							<h1 id='logevento' class='logerror'> Pedido desativado! </h1>
 							</div>";
 							unset($_SESSION['pedidodesativado']);
 					}
