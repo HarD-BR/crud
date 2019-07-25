@@ -9,7 +9,7 @@
 	<html xmlns='http://www.w3.org/1999/xhtml'>
  
    <head>
-    <link rel='shortcut icon' type='image/x-icon' href='logopontocom.png' />
+    <link rel='shortcut icon' type='image/x-icon' href='img_repo/icon_crud.png' />
     <link rel='stylesheet' type='text/css' href='css/style.css'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -20,11 +20,11 @@
 	<body>
 		<div class='container'>
 			<div class='box tbbox'>
-				<h1 class='t1'> Painel de administração | Pontocom Informática </h1>
+				<h1 class='t1'> Painel de administração</h1>
 				<div>
 					<h1 class="t1 tTitulo">Perfil</h1>
 				</div>
-				<?php include "menu_lateral.php"; ?>
+				<?php include "modules/menu_lateral.php"; ?>
 				<div class="content">
 					<div class="coluna">
 						<form action="funcphp/atualizar_perfil.php"onsubmit="return validarsenhas()" method="POST" class="cadbox">

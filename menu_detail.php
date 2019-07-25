@@ -13,7 +13,7 @@
 	<html xmlns='http://www.w3.org/1999/xhtml'>
  
    <head>
-    <link rel='shortcut icon' type='image/x-icon' href='logopontocom.png' />
+    <link rel='shortcut icon' type='image/x-icon' href='img_repo/icon_crud.png' />
     <link rel='stylesheet' type='text/css' href='css/style.css'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
   	<script type="text/javascript" src="js/main.js"></script>  
@@ -23,11 +23,11 @@
 	<body>
 		<div class='container'>
 			<div class='box tbbox'>
-				<h1 class='t1'> Painel de administração | Pontocom Informática </h1>
+				<h1 class='t1'> Painel de administração</h1>
 				<div>
 					<input class="inStd inTo" type="text" readonly value=" <?php echo $dados->nm_maq,"-", $dados->nm_cliente ?>">
 				</div>
-				<?php include "menu_lateral.php"; ?>
+				<?php include "modules/menu_lateral.php"; ?>
 				<div class="content">
 					<form action="funcphp/atualizar_pedido.php" method="POST">
 					<div class="">

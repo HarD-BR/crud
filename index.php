@@ -9,7 +9,7 @@
 	<html xmlns='http://www.w3.org/1999/xhtml'>
  
    <head>
-   	<link rel='shortcut icon' type='image/x-icon' href='img_repo/logopontocom.png' />
+   	<link rel='shortcut icon' type='image/x-icon' href='img_repo/icon_crud.png' />
     <link rel='stylesheet' type='text/css' href='css/style.css'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <style type='text/css'>
