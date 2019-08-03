@@ -1,4 +1,4 @@
-use bdpontocom;
+use bdcrud;
 
 CREATE TABLE usuario(
 	id_usuario int PRIMARY KEY AUTO_INCREMENT NOT NULL,
