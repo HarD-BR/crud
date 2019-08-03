@@ -1,12 +1,17 @@
 <?php
-	include "funcphp/lg_chk.php";
-	include "funcphp/conn.php";
+    include 'funcphp/lg_chk.php';
+    include 'funcphp/conn.php';
 
-	$ped_id	= $_POST['bt_det'];			
+    $sql = 'SELECT pedidos.*, usuario.usuario FROM pedidos INNER JOIN usuario ON usuario.id_usuario=pedidos.fk_id_usuario WHERE id= :IDPED';
 
-	$executa = "SELECT pedidos.*, usuario.usuario FROM pedidos INNER JOIN usuario ON usuario.id_usuario=pedidos.fk_id_usuario WHERE id='$ped_id'";
-	$query=$con->query($executa);
-	$dados=mysqli_fetch_object($query);
+    $stmt = $con->prepare($sql);
+    $stmt->bindParam(':IDPED', $ped_id);
+
+    $ped_id = $_POST['bt_det'];
+
+    $stmt->execute();
+    $dados = $stmt->fetch();
+
 ?>
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
 
@@ -25,57 +30,57 @@
 			<div class='box tbbox'>
 				<h1 class='t1'> Painel de administração</h1>
 				<div>
-					<input class="inStd inTo" type="text" readonly value=" <?php echo $dados->nm_maq,"-", $dados->nm_cliente ?> - Inativo">
+					<input class="inStd inTo" type="text" readonly value=" <?php echo $dados['nm_maq'],'-', $dados['nm_cliente']; ?> - Inativo">
 				</div>
-				<?php include "modules/menu_lateral.php"; ?>
+				<?php include 'modules/menu_lateral.php'; ?>
 				<div class="content">
 					<div class="">
 						<div class='coluna'>
 							<div class="lbTx inTx">
-								<label>ID: <?php echo $dados->id ?></label>
+								<label>ID: <?php echo $dados['id']; ?></label>
 							</div>
 							<div class="lbTx inTx">
-								<label>Cliente: <?php echo $dados->nm_cliente ?></label>
+								<label>Cliente: <?php echo $dados['nm_cliente']; ?></label>
 							</div>
 							<div class="lbTx inTx">
-								<label>Máquina: <?php echo $dados->nm_maq ?></label>
+								<label>Máquina: <?php echo $dados['nm_maq']; ?></label>
 							</div>					
 						</div>
 						<div class='coluna'>
 							<div class="lbTx inTx">
-								<label>Data de entrada: <?php echo date('d/m/Y', strtotime($dados->dt_ent)) ?></label>
+								<label>Data de entrada: <?php echo date('d/m/Y', strtotime($dados['dt_ent'])); ?></label>
 							</div>
 							<div class="lbTx inTx">
-								<label>Data de saída(previsão): <?php echo date('d/m/Y', strtotime($dados->dt_sai)) ?></label>
+								<label>Data de saída(previsão): <?php echo date('d/m/Y', strtotime($dados['dt_sai'])); ?></label>
 							</div>
 							<div class="lbTx inTx">
-								<label>Valor do serviço: R$<?php echo $dados->vl_serv ?></label>
+								<label>Valor do serviço: R$<?php echo $dados['vl_serv']; ?></label>
 							</div>					
 						</div>
 						<div class='coluna'>
 							<div class="lbTx inTx">
-								<label>Status: <?php echo $dados->status ?></label>
+								<label>Status: <?php echo $dados['status']; ?></label>
 							</div>
 							<div class="lbTx inTx">
-								<label>Situação: <?php echo $dados->situacao ?></label>
+								<label>Situação: <?php echo $dados['situacao']; ?></label>
 							</div>
 							<div class="lbTx inTx">
-								<label>Cadastrado por: <?php echo $dados->usuario ?></label>
+								<label>Cadastrado por: <?php echo $dados['usuario']; ?></label>
 							</div>
 						</div>
 					</div>
 					<div>
 						<fieldset class='coluna fscxTx'>
 							<legend class='lgTil'>Problemas encontrados</legend>
-							<textarea class='cxTx' name="problemas_txt"><?php echo $dados->problemas ?></textarea>
+							<textarea class='cxTx' name="problemas_txt"><?php echo $dados['problemas']; ?></textarea>
 						</fieldset>
 						<fieldset class='coluna fscxTx'>
 							<legend class='lgTil'>Soluções</legend>
-							<textarea class='cxTx' name="solucao_txt"><?php echo $dados->solucoes ?></textarea>
+							<textarea class='cxTx' name="solucao_txt"><?php echo $dados['solucoes']; ?></textarea>
 						</fieldset>
 						<fieldset class='coluna fscxTx'>
 							<legend class='lgTil'>Peças trocadas</legend>
-							<textarea class='cxTx' name="pecas_txt"><?php echo $dados->pecas ?></textarea>
+							<textarea class='cxTx' name="pecas_txt"><?php echo $dados['pecas']; ?></textarea>
 						</fieldset>
 					</div>
 				</div>

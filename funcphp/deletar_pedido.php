@@ -1,17 +1,18 @@
 <?php 
 	include "conn.php";
 
+    $sql = "UPDATE pedidos SET status='Inativo' WHERE id= :CODIGO";
 
-$codigo	= $_POST["bt_del"];
+    $stmt = $con->prepare($sql);
+    $stmt->bindParam(':CODIGO', $codigo);
+    $codigo	= $_POST["bt_del"];
+    
+    if ($stmt->execute() === TRUE) {
+        $_SESSION['pedidodesativado'] = "true";
+        header("Location: ../menu_search.php");
+    } else {
+        $error = $stmt->errorInfo();
+        echo 'Error: ' . $sql . '<br>' . $error[2];
+    }
 
-$sql = "UPDATE pedidos SET status='Inativo' WHERE id='$codigo'";
-
-if ($con->query($sql) === TRUE) {
-   $_SESSION['pedidodesativado'] = "true";
-    header("Location: ../menu_search.php");
-} else {
-    echo "Error: " . $sql . "<br>" . $con->error;
-}
-
-$con->close();
-?>
+$con = null;

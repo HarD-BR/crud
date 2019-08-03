@@ -1,29 +1,35 @@
-<?php 
-	include "conn.php";
-	include "lg_chk.php";
+<?php
+include 'conn.php';
+include 'lg_chk.php';
 
-$pswatual	= $_POST["pswatual_txt"];
-$pswnova	= $_POST["pswnova_txt"];
-$usuario	= $_SESSION['usuarioNome'];
+$sql = 'SELECT senha FROM usuario WHERE usuario= :USUARIO';
+$sql2 = 'UPDATE usuario SET senha= :SENHA WHERE usuario= :USUARIO';
 
-$sql= "SELECT senha FROM usuario WHERE usuario='$usuario'";
-$sql2 = "UPDATE usuario SET senha='$pswnova' WHERE usuario='$usuario'";
+$stmt = $con->prepare($sql);
+$stmt2 = $con->prepare($sql2);
 
-$result = $con->query($sql);
-$dados	= mysqli_fetch_object($result);
+$stmt->bindParam(':USUARIO', $usuario);
+$stmt2->bindParam(':USUARIO', $usuario);
+$stmt2->bindParam(':SENHA', $pswnova);
 
-if ($pswatual == $dados->senha) {
-    if ($con->query($sql2) === TRUE) {
-    	$_SESSION['updateConfirmado'] = "true";
+$pswatual = $_POST['pswatual_txt'];
+$pswnova = $_POST['pswnova_txt'];
+$usuario = $_SESSION['usuarioNome'];
+
+$stmt->execute();
+$dados = $stmt->fetch();
+
+if ($pswatual == $dados['senha']) {
+    if (true === $stmt2->execute()) {
+        $_SESSION['updateConfirmado'] = 'true';
         header('Location: ../perfil.php');
-    }else{
-    	$_SESSION['updateNegado'] = "true";
-    	header('Location: ../perfil.php');
-    }  
-}else {
-	$_SESSION['senhaDiferente'] = "true";
+    } else {
+        $_SESSION['updateNegado'] = 'true';
+        header('Location: ../perfil.php');
+    }
+} else {
+    $_SESSION['senhaDiferente'] = 'true';
     header('Location: ../perfil.php');
 }
 
-$con->close();
-?>
+$con - null;
