@@ -1,25 +1,27 @@
 <?php
-    session_start();     
-    include "conn.php";    
+    session_start();
+    include 'conn.php';
 
-    if((isset($_POST['user_txt'])) && (isset($_POST['pass_txt']))){
+    if ((isset($_POST['user_txt'])) && (isset($_POST['pass_txt']))) {
+        $sql_query = 'SELECT * FROM usuario WHERE usuario = :USUARIO && senha = :SENHA';
 
-        $usuario = mysqli_real_escape_string($con, $_POST['user_txt']); 
-        $senha = mysqli_real_escape_string($con, $_POST['pass_txt']);
+        $stmt = $con->prepare($sql_query);
+        $stmt->bindParam(':USUARIO', $usuario);
+        $stmt->bindParam(':SENHA', $senha);
 
-            
-        $sql = "SELECT * FROM usuario WHERE usuario = '$usuario' && senha = '$senha'";
-        $resultado_usuario = mysqli_query($con, $sql);
-        $resultado = mysqli_fetch_assoc($resultado_usuario);
+        $usuario = $_POST['user_txt'];
+        $senha = $_POST['pass_txt'];
 
-        if(isset($resultado)){
+        $stmt->execute();
+        $resultado = $stmt->fetch();
+
+        if (isset($resultado)) {
             $_SESSION['usuarioId'] = $resultado['id_usuario'];
             $_SESSION['usuarioNome'] = $resultado['usuario'];
             $_SESSION['usuarioEmail'] = $resultado['email'];
-                header('Location: ../menu_search.php');
-        }else{
-            $_SESSION['nao_login'] = '1';    
+            header('Location: ../menu_search.php');
+        } else {
+            $_SESSION['nao_login'] = '1';
             header('Location: ../index.php');
         }
     }
-?>
