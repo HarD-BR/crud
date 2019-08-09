@@ -7,55 +7,37 @@ $(document).ready(function(){
   		});
 });
 
-var status = document.getElementById("dd_txt")
-var entdt = document.getElementById("ent_dt")
-var form = document.getElementById("form_perfil")
+$("#form_perfil").submit(function(e){
+	
+	var pn = $("#pswnova_txt").val()
+    var rpn = $("#repswnova_txt").val()
+    var mes = $("#senhaerrada_txt")
 
-status.addEventListener('change', validarupdate)
-entdt.addEventListener('blur', set_min)
-entdt.addEventListener('change', limpar_saida)
-form.addEventListener('submit', function(e){
-	var pn = document.getElementById("pswnova_txt").value
-	var rpn = document.getElementById("repswnova_txt").value
-	var mes = document.getElementById("senhaerrada_txt")
-
-	e.preventDefault()
-	if (rpn !== pn) {
-		mes.style.display = "block"
-		document.getElementById("pswnova_txt").style.borderColor = "red"
-		document.getElementById("repswnova_txt").style.borderColor = "red"
+    if(rpn != pn){
+		mes.show()
+		$("#pswnova_txt").css('border-color', 'red')
+		$("#repswnova_txt").css('border-color', 'red')
 		return false
-	}	
+    }else{
+		return true
+	}
 })
 
-function validarsenhas() {
-  	var pn = document.getElementById("pswnova_txt").value 
-  	var rpn = document.getElementById("repswnova_txt").value 
-  	var mes = document.getElementById("senhaerrada_txt")
+$("#ent_dt").blur(function(){
+	var dte = $("#ent_dt").val()
+	$("#sai_dt").attr("min", dte)
+})
 
-  	if (rpn !== pn) {
-		mes.style.display = "block"
-  		document.getElementById("pswnova_txt").style.borderColor = "red" 
-  		document.getElementById("repswnova_txt").style.borderColor = "red" 
-  		return false
-  	}	
-}
+$("#ent_dt").change(function(){
+	$("#sai_dt").val("")
+})
 
-function validarupdate(){
-	var status = document.getElementById("dd_txt").value
+$("#dd_txt").change(function(){
+	var status = $("#dd_txt").val()
 
-	if(status.value == "Fechado"){
-		document.getElementsByTagName("textarea").removeAttribute("required")
+	if (status.val == "Fechado"){
+		$("textarea").removeAttr("required")
 	}else{
-		document.getElementsByTagName("textarea").setAttribute("required", "required")
+		$("textarea").attr("required", "required")
 	}
-}
-
-function set_min() {
- 	var dte = document.getElementById("ent_dt").value 
- 	document.getElementById("sai_dt").setAttribute("min", dte)
-}
-
-function limpar_saida() {
-  document.getElementById("sai_dt").value = ""
-}
+})
