@@ -21,6 +21,7 @@ $dados = $stmt->fetch();
 	<link rel='shortcut icon' type='image/x-icon' href='img_repo/icon_crud.png' />
 	<link rel='stylesheet' type='text/css' href='css/style.css' />
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<title> Pontocom Informática </title>
 </head>
@@ -53,7 +54,7 @@ $dados = $stmt->fetch();
 						<div class='coluna'>
 							<div class="lbTx inTx">
 								<label>Data de entrada:</label>
-								<input class='input_borderless input_date' type="date" id="ent_dt" name="ent_dt" value='<?php echo $dados['dt_ent']; ?>' title="Digite a data de entrada do pedido" min="<?php echo $dados['dt_ent']; ?>" onblur="set_min()" onchange="limpar_saida()" required="required" />
+								<input class='input_borderless input_date' type="date" id="ent_dt" name="ent_dt" value='<?php echo $dados['dt_ent']; ?>' title="Digite a data de entrada do pedido" min="<?php echo $dados['dt_ent']; ?>" required="required" />
 							</div>
 							<div class="lbTx inTx">
 								<label>Data de saída(previsão):</label>
@@ -110,9 +111,6 @@ $dados = $stmt->fetch();
 
 		</div>
 	</div>
-	<script type="text/javascript">
-		document.addEventListener('DOMContentLoaded', set_min());
-	</script>
 </body>
 
 </html>
