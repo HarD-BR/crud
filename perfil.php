@@ -52,20 +52,20 @@ include "funcphp/lg_chk.php";
 							<?php
 
 							if (isset($_SESSION['senhaDiferente'])) {
-								echo "<div class='container errorbox'>
-							<h1 class='logerror'> Senha atual não encontrada! </h1>
+								echo "<div id='boxevento' class='container errorbox'>
+							<h1 id='logevento' class='logtext'> Senha atual não encontrada! </h1>
 							</div>";
 								unset($_SESSION['senhaDiferente']);
 							}
 							if (isset($_SESSION['updateConfirmado'])) {
-								echo "<div class='container aceitobox'>
-							<h1 class='logerror'> Senha atualizada! </h1>
+								echo "<div id='boxevento' class='container aceitobox'>
+							<h1 id='logevento' class='logtext'> Senha atualizada! </h1>
 							</div>";
 								unset($_SESSION['updateConfirmado']);
 							}
 							if (isset($_SESSION['updateNegado'])) {
-								echo "<div class='container errorbox'>
-							<h1 class='logerror'> Houve um problema ao atualizar! <br /> Error: " . $sql . "<br>" . $con->error . " ! </h1>
+								echo "<div id='boxevento' class='container errorbox'>
+							<h1 id='logevento' class='logtext'> Houve um problema ao atualizar! <br /> Error: " . $sql . "<br>" . $con->error . " ! </h1>
 							</div>";
 								unset($_SESSION['updateNegado']);
 							}
