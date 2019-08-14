@@ -69,15 +69,9 @@ $dados = $stmt->fetch();
 							<div class="lbTx inTx">
 								<label>Status: </label>
 								<select class='input_borderless' id="dd_txt" name="dd_txt" class="lbTx lbTxCad" type="text" required="required">
-									<?php
-									if ('Aberto' == $dados['status']) {
-										echo "<option value='Aberto' selected='selected'>Aberto</option>
-												<option value='Fechado'>Fechado</option>";
-									} else {
-										echo "<option value='Fechado' selected='selected'>Fechado</option>
-										<option value='Aberto'>Aberto</option>";
-									}
-									?>
+									<option value='Ativo' selected='selected'>Ativo</option>
+									<option value='Inativo'>Inativo</option>
+									<option value='Concluido'>Concluído</option>
 								</select>
 							</div>
 							<div class="lbTx inTx">
@@ -106,7 +100,7 @@ $dados = $stmt->fetch();
 					<div class="container">
 						<input class="btn btnc" type="submit" id="bt_enviar" name="bt_Enviar" value="Atualizar pedido">
 				</form>
-				<button class="btn btne" type="submit" formaction="funcphp/deletar_pedido.php" id="bt_delete" name="bt_del" value="<?php echo $dados['id']; ?>">Excluir pedido</button>
+				<!--- <button class="btn btne" type="submit" formaction="funcphp/deletar_pedido.php" id="bt_delete" name="bt_del" value="<?php echo $dados['id']; ?>">Excluir pedido</button> --->
 			</div>
 
 		</div>
