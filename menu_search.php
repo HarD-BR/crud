@@ -55,7 +55,7 @@ include 'funcphp/lg_chk.php';
                         </tr><br />
                         <?php
                         include 'funcphp/conn.php';
-                        $sql = "SELECT * FROM pedidos WHERE status='Aberto' ORDER BY id";
+                        $sql = "SELECT * FROM pedidos WHERE status='Ativo' ORDER BY id";
                         $stmt = $con->prepare($sql);
                         $stmt->execute();
                         while ($dados = $stmt->fetch()) {
