@@ -69,7 +69,7 @@ $dados = $stmt->fetch();
 							<div class="lbTx inTx">
 								<label>Status: </label>
 								<select class='input_borderless' id="dd_txt" name="dd_txt" class="lbTx lbTxCad" type="text" required="required">
-									<option value='Ativo' selected='selected'>Ativo</option>
+									<option value='Ativo'>Ativo</option>
 									<option value='Inativo'>Inativo</option>
 									<option value='Concluido'>Concluído</option>
 								</select>
