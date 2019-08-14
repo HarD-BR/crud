@@ -31,7 +31,6 @@ include 'funcphp/lg_chk.php';
 							<th>ID</th>
 							<th>Cliente</th>
 							<th>Consultar</th>
-							<th>Excluir</th>
 						</tr><br />
 						<?php
 						include 'funcphp/conn.php';
@@ -42,8 +41,7 @@ include 'funcphp/lg_chk.php';
 						while ($dados = $stmt->fetch()) {
 							echo '<td>' . $dados['id'] . '</td>';
 							echo '<td>' . $dados['nm_maq'] . '</td>';
-							echo "<td><form method='POST' action='menu_detail_concluido.php' id='campos_del'><button class='btn btna' type='submit' name='bt_det' value=" . $dados['id'] . '>Consultar</button></form></td>';
-							echo "<td><form method='POST' action='funcphp/deletar_pedido.php' id='campos_del'><button class='btn btne' type='submit' name='bt_del' value=" . $dados['id'] . '>Excluir</button></form></td></tr>';
+							echo "<td><form method='POST' action='menu_detail_concluido.php' id='campos_del'><button class='btn btna' type='submit' name='bt_det' value=" . $dados['id'] . '>Consultar</button></form></td></tr>';
 						}
 						?>
 					</table>
