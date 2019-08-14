@@ -54,8 +54,8 @@ $dt = date('Y-m-d', $hr);
 						<tr>
 							<td><label class="lbCad">Status:</label></td>
 							<td><select name="dd_txt" class="lbTx lbTxCad" type="text">
-									<option value="Aberto">Aberto</option>
-									<option value="Fechado">Fechado</option>
+									<option value="Ativo">Ativo</option>
+									<option value="Inativo">Inativo</option>
 								</select></td>
 						</tr>
 						<tr>
