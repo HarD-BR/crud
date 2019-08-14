@@ -1,10 +1,10 @@
-$(document).ready(function(){
-  		$("#camp_busca").on("keyup", function() {
-    		var value = $(this).val().toLowerCase();
-    	$("#tabelaResultado tr").filter(function() {
-      		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-   		});
-		});
+$(document).ready(function () {
+	$("#camp_busca").on("keyup", function () {
+		var value = $(this).val().toLowerCase();
+		$("#tabelaResultado tr").filter(function () {
+			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		})
+	})
 
 	$("#form_perfil").submit(function (e) {
 
@@ -22,7 +22,7 @@ $(document).ready(function(){
 		}
 	})
 
-	$("#ent_dt").blur(function () {
+	$("#ent_dt").change(function () {
 		var dte = $("#ent_dt").val()
 		$("#sai_dt").attr("min", dte)
 	})
@@ -34,12 +34,10 @@ $(document).ready(function(){
 	$("#dd_txt").change(function () {
 		var status = $("#dd_txt").val()
 
-		if (status == "Fechado") {
+		if (status == "Inativo") {
 			$("textarea").removeAttr("required")
-		} else {
-			$("textarea").attr("required", "required")
 		}
-	})  
+	})
 
 	$("#boxevento").fadeOut(3000)
 });
